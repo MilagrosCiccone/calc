@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Downpayment</title>
+</head>
+<body>
+    <h1>Calculadora de Downpayment</h1>
+    <form>
+        <label for="tuition">Total Contrato:</label>
+        <input type="number" id="tuition" name="tuition"><br>
+
+        <label for="materials">Total materiales:</label>
+        <input type="number" id="materials" name="materials"><br>
+
+        <label for="porcentaje">plan de pagos elegido:</label>
+        <select id="porcentaje">
+            <option value="25">deposito de 25%</option>
+            <option value="50">deposito de 50%</option>
+        </select>
+              
+        <br>
+
+        <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            // Get the input values
+            var tuition = Number(document.getElementById("tuition").value);
+            var materials = Number(document.getElementById("materials").value);
+            var porcentaje = Number(document.getElementById("porcentaje").value);
+
+            // Calculate the results
+            if (porcentaje === 25) {
+                var dp = tuition * 0.25 + materials;
+            } else {
+                var dp = tuition * 0.50 + materials;
+            } 
+
+            // Display the results
+            document.getElementById("result").innerHTML =
+                "El downpayment es de: " + dp + "<br>";
+        }
+    </script>
+</body>
+</html>
